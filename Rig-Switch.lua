@@ -13,6 +13,7 @@ local Players = Service(game, "Players")
 local LocalPlayer = Players.LocalPlayer
 local Character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
 local Humanoid = Character:FindFirstChildOfClass("Humanoid")
+
 if (not Humanoid) then
 	return
 end

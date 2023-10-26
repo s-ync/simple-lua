@@ -30,6 +30,7 @@ local Notify = function(Args)
 end
 	
 AvatarEditorService:PromptSaveAvatar(Humanoid.HumanoidDescription, BecomeRigType)
+
 local Result = AvatarEditorService:PromptSaveCompleted:Wait()
 if Result ~= Enum.AvatarPromptResult.Success then
 	Notify({

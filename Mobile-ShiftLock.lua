@@ -2,7 +2,6 @@
 local Service = game.GetService
 local Players = Service(game, "Players")
 local RunService = Service(game, "RunService")
-local CAS = Service(game, "ContextActionService")
 local CoreGui = Service(game, "CoreGui")
 -- Variables
 local LocalPlayer = Players.LocalPlayer

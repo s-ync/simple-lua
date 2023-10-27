@@ -15,7 +15,7 @@ local Character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
 local Humanoid = Character:FindFirstChildOfClass("Humanoid")
 
 if (not Humanoid) then
-	return
+	return warn("you need a humanoid fam")
 end
 
 local BecomeRigType
@@ -48,10 +48,10 @@ Notify({
 })
 
 if (Options["Reset"]) then
-	local RootPart = Character:FindFirstChild("HumanoidRootPart") or chr:FindFirstChild("Torso") or chr:FindFirstChild("UpperTorso")
+	local RootPart = Character:FindFirstChild("HumanoidRootPart") or Character:FindFirstChild("Torso") or Character:FindFirstChild("UpperTorso")
 	local OriginalCFrame = RootPart.CFrame
 	Character:BreakJoints()
-	local NewChar = plr.CharacterAdded:Wait()
+	local NewChar = LocalPlayer.CharacterAdded:Wait()
 	local NewRootPart = NewChar:WaitForChild("HumanoidRootPart")
 	NewRootPart.CFrame = OriginalCFrame
 	Notify({

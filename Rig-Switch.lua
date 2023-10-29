@@ -40,7 +40,7 @@ if Result ~= Enum.AvatarPromptResult.Success then
 		Text = "Cancelled or an error has occured";
 		Duration = 3;
 	})
-	return nil, true
+	return nil
 end
 
 Notify({
@@ -63,4 +63,4 @@ if (_G.RigW.Reset) then
 	})
 end
 
-return true, nil
+return true, BecomeRigType.Name

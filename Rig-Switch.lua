@@ -31,7 +31,7 @@ end
 	
 AvatarEditorService:PromptSaveAvatar(Humanoid.HumanoidDescription, BecomeRigType)
 
-local Result = AvatarEditorService:PromptSaveCompleted:Wait()
+local Result = AvatarEditorService.PromptSaveAvatarCompleted:Wait()
 if Result ~= Enum.AvatarPromptResult.Success then
 	Notify({
 		Title = "Failed to switch";

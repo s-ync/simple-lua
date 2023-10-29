@@ -1,8 +1,6 @@
-local Options = {
-	Notify = true; -- Notify output when switching idk
+_G.RigW = _G.RigW or {
 	Reset = true; -- Reset and teleport back to your original position
 }
-
 -- Skid
 local Service = game.GetService
 local format = string.format
@@ -50,7 +48,7 @@ Notify({
 	Duration = 3;
 })
 
-if (Options["Reset"]) then
+if (_G.RigW.Reset) then
 	local RootPart = Character:FindFirstChild("HumanoidRootPart") or Character:FindFirstChild("Torso") or Character:FindFirstChild("UpperTorso")
 	local OriginalCFrame = RootPart.CFrame
 	Character:BreakJoints()
@@ -63,5 +61,3 @@ if (Options["Reset"]) then
 		Duration = 3;
 	})
 end
-
-return Options

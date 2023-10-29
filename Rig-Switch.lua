@@ -1,4 +1,5 @@
 _G.RigW = _G.RigW or {
+	Notify = true; -- feedback stuff idk
 	Reset = true; -- Reset and teleport back to your original position
 }
 -- Skid
@@ -25,7 +26,7 @@ else
 end
 
 local Notify = function(Args)
-	if Options.Notify then
+	if _G.RigW.Notify then
 		StarterGui:SetCore("SendNotification", Args)
 	end
 end

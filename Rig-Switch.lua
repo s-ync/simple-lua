@@ -1,4 +1,5 @@
-_G.Sync_Options = {
+local Options = {
+	Notify = true; -- Notify output when switching idk
 	Reset = true; -- Reset and teleport back to your original position
 }
 
@@ -26,7 +27,9 @@ else
 end
 
 local Notify = function(Args)
-	StarterGui:SetCore("SendNotification", Args)
+	if Options.Notify then
+		StarterGui:SetCore("SendNotification", Args)
+	end
 end
 	
 AvatarEditorService:PromptSaveAvatar(Humanoid.HumanoidDescription, BecomeRigType)
@@ -47,7 +50,7 @@ Notify({
 	Duration = 3;
 })
 
-if (_G.Sync_Options["Reset"]) then
+if (Options["Reset"]) then
 	local RootPart = Character:FindFirstChild("HumanoidRootPart") or Character:FindFirstChild("Torso") or Character:FindFirstChild("UpperTorso")
 	local OriginalCFrame = RootPart.CFrame
 	Character:BreakJoints()
@@ -60,3 +63,5 @@ if (_G.Sync_Options["Reset"]) then
 		Duration = 3;
 	})
 end
+
+return Options

@@ -1,4 +1,4 @@
-local Options = {
+_G.Sync_Options = {
 	Reset = true; -- Reset and teleport back to your original position
 }
 
@@ -47,7 +47,7 @@ Notify({
 	Duration = 3;
 })
 
-if (Options["Reset"]) then
+if (_G.Sync_Options["Reset"]) then
 	local RootPart = Character:FindFirstChild("HumanoidRootPart") or Character:FindFirstChild("Torso") or Character:FindFirstChild("UpperTorso")
 	local OriginalCFrame = RootPart.CFrame
 	Character:BreakJoints()

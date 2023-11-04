@@ -1,5 +1,6 @@
--- Services
 local Service = game.GetService
+
+-- Services
 local Players = Service(game, "Players");
 local RunService = Service(game, "RunService");
 local CoreGui = Service(game, "CoreGui");
@@ -22,6 +23,12 @@ ShiftLockButton.SizeConstraint = Enum.SizeConstraint.RelativeXX
 ShiftLockButton.Image = "http://www.roblox.com/asset/?id=182223762"
 
 -- Function
+local DisconnectAll = function(tbl)
+	for i, v in next, tbl do
+		v:Disconnect()
+	end
+end
+
 local WasEnabled, DestroyScript = false
 local ShiftLock;
 ShiftLock = function()
@@ -72,11 +79,10 @@ ShiftLock = function()
 		end
 	end);
 	
-	Connections[#Connections + 1] = Humanoid.Died:Connect(function()
+	Connections["x"] = nil
+	Connections["x"] = Humanoid.Died:Connect(function()
 		LocalPlayer.CharacterAdded:Wait();
-		for i, v in next, Connections do
-			v:Disconnect();
-		end
+		DisconnectAll(Connections);
 		pcall(function()
 			IsActive:Disconnect();
 			IsActive = nil
@@ -84,9 +90,7 @@ ShiftLock = function()
 		ShiftLock();
 	end);
 	DestroyScript = function()
-		for i, v in next, Connections do
-			v:Disconnect();
-		end
+		DisconnectAll(Connections);
 		if (IsActive) then
 			Disable();
 		end
@@ -96,4 +100,4 @@ end
 
 ShiftLock();
 
-return { DestroyScript }
+return DestroyScript
